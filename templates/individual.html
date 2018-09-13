@@ -39,40 +39,51 @@
       {%include 'homepage/navigation.html'%}
     {%endif%}
 
-    
+        <br>
+        <br>
         <div class = "d-flex justify-content-center" >
         <h1 style="text-align:center; font-size: 40px; color:#3cb371"> Các chỉ số cơ thể</h1>
         </div>
+        <br>
         <div class = "d-flex justify-content-center">
-        <table border = "1px">
-            <thead class="text-center font-lobster" style="font-size:30px; text-align:center;">
-                <th>STT</th>
-                <th>Thời gian</th>
-                <th>Chiều cao<br>(cm)</th>
-                <th>Cân nặng<br>(kg)</th>
-                <th>BMI</th>
-                <th>Phân loại</th>
-                <th>Chế độ luyện tập</th>
-            </thead>
-            <tbody>
-                {% for body in all_body %}
-                <tr>
-                    <td>{{loop.index}}</td>
-                    <td>{{body.time}}</td>
-                    <td>{{body.height}}</td>
-                    <td>{{body.weight}}</td>
-                    <td>{{body.bmi}}</td>
-                    <td>{{body.bmi_type}} </td>
-                    <td><a href="{{url_for('getlean', bmi_id= body.id)}}" style="color:green;">View</a></td>
-                </tr>               
-                {% endfor %} 
-
-            </tbody>
+        <div class="container">
+        <table class="table table-bordered" >
+                <thead>
+                  <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Thời gian</th>
+                    <th scope="col">Chiều cao(cm)</th>
+                    <th scope="col">Cân nặng(kg)</th>
+                    <th scope="col">BMI</th>
+                    <th scope="col">Phân loại</th>
+                    <th scope="col">Chế độ luyện tập</th>
+                  </tr>
+                </thead>
+                <tbody>
+                   {% for body in all_body %}
+                   <tr>
+                       <td>{{loop.index}}</td>
+                       <td>{{body.time}}</td>
+                       <td>{{body.height}}</td>
+                       <td>{{body.weight}}</td>
+                       <td>{{body.bmi}}</td>
+                       <td>{{body.bmi_type}} </td>
+                       <td><a href="{{url_for('getlean', bmi_id= body.id)}}" style="color:green;">View</a></td>
+                   </tr>               
+                   {% endfor %} 
+                </tbody>
         </table>
+        </div>
+
 
     </div>
         <br>
-    
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     <footer>
     {%include 'homepage/footer.html'%}
     </footer>
